@@ -7,8 +7,8 @@ is built using the [Symfony Console][symfony] and the [PHP API Client][phpapi].
 
 ## Quick Start
 
-Run the `bin/scout` file from the command line. It will prompt you for your API
-key. It will store an API token in a ~/.helpscout.yml file.
+Run the `bin/helpscout` file from the command line. It will prompt you for your
+API key. It will store an API token in a ~/.helpscout.yml file.
 
 ## Help
 ```

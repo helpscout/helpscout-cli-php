@@ -57,6 +57,7 @@ class SetupCommand extends AbstractCommand
         // run with this config - for instance if the user issues a command
         // and no config file was found.
         $this->app->config = $this->config;
+        $this->app->container['api_key'] = $this->config['ApiKey'];
 
         // Write this to disk for later use
         $this->app->saveConfig();
