@@ -19,6 +19,8 @@ class HelpScout extends Application
 
     public $configFile;
 
+    public $container;
+
     public function initialize($configFile, $templatePath, $project)
     {
         $runSetup = false;
