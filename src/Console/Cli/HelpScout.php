@@ -195,7 +195,8 @@ class HelpScout extends Application
             try {
                 $command = $this->find($name);
             } catch (\Exception $e) {
-                exit($e->getMessage()."\n");
+                print $e->getMessage()."\n";
+                return 1;
             }
         }
 
