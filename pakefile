@@ -1,0 +1,94 @@
+<?php
+
+pake_desc('Run the unit tests');
+pake_task('test');
+
+pake_desc('Check the code for psr2 standards');
+pake_task('sniff');
+
+pake_desc('Run php-cs-fixer on the src directory');
+pake_task('fixer');
+
+pake_desc('Update the README with the latest command output');
+pake_task('readme');
+
+pake_desc('PHP Lint the src folder');
+pake_task('lint');
+
+pake_desc('Display the version');
+pake_task('version');
+
+pake_desc('Build the app for release');
+pake_task('build', 'version', 'readme', 'lint', 'fixer', 'sniff');
+
+pake_alias('default', 'build');
+
+function run_build()
+{
+    // Used only for naming a string of dependencies.
+}
+
+function run_test()
+{
+    pake_sh('./vendor/bin/phpunit', true);
+}
+
+function run_version()
+{
+    $composer = json_decode(file_get_contents('composer.json'));
+    pake_echo_comment("Building Markdown Resume Builder version " . $composer->version);
+}
+
+function run_version_file()
+{
+    // Find the latest tag
+    $version = trim(shell_exec('git describe --abbrev=0 --tags'));
+    // Write it to the version file for the self update command
+    file_put_contents('./version', $version);
+    // Write it to the composer.json file as well
+    $config = json_decode(file_get_contents('composer.json'));
+    $config->version = $version;
+    file_put_contents('composer.json', json_encode($config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+}
+
+function run_lint()
+{
+    pake_echo_comment('Linting files');
+    pake_sh('./build/lint -R ./src', true);
+}
+
+function run_sniff()
+{
+    pake_echo_comment('Checking files for PSR2');
+    pake_sh('./vendor/bin/phpcs -p --standard=PSR2 ./src/ ./cli.php', true);
+}
+
+function run_fixer()
+{
+    pake_echo_comment('Running php-cs-fixer');
+    pake_sh(
+        './vendor/bin/php-cs-fixer fix ./cli.php'
+        . ' && ./vendor/bin/php-cs-fixer fix ./src/Console/Cli/'
+        . ' && ./vendor/bin/php-cs-fixer fix ./src/Console/Command/'
+        . ' || true',
+        true
+    );
+}
+
+function run_readme()
+{
+    pake_echo_comment('Updating README documentation');
+
+    $startPoint = '## Help';
+    $endPoint   = '## Examples';
+    $readme     = file_get_contents('README.md');
+    $help       = shell_exec('php ./cli.php list --no-interaction --no-ansi');
+    $output     = preg_replace(
+        '/('.preg_quote($startPoint).')(.*)('.preg_quote($endPoint).')/si',
+        "$1\n```\n" . $help . "```\n$3",
+        $readme
+    );
+    file_put_contents('README.md', $output);
+}
+
+/* End of pakefile */

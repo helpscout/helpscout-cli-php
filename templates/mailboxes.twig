@@ -1,0 +1,12 @@
+
+————————————————————————————————————————————————————————————————————————————————
+                        Help Scout Mailboxes
+————————————————————————————————————————————————————————————————————————————————
+<heading> ID         Name                           Email                                </heading>
+————————————————————————————————————————————————————————————————————————————————
+{% for mailbox in mailboxes %}
+ {{"[%d]"|format(mailbox.id)|pad(10, "left")|style("info")}} {{mailbox.name|pad(30, "left")}} {{mailbox.email|pad(40, "left")}}
+{% endfor %}
+{% if mailboxes|length == 0%}
+  <notice>There are no mailboxes</notice>
+{% endif  %}

@@ -1,0 +1,38 @@
+{
+    "name": "helpscout/helpscout-cli-php",
+    "description": "Help Scout Command Line Client",
+    "homepage": "https://github.com/helpscout/helpscout-cli-php",
+    "version": "0.0.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Help Scout",
+            "email": "developer@helpscout.net"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/helpscout/helpscout-cli-php/issues"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "helpscout/api": "~1.5",
+        "symfony/config": "~2.7@beta",
+        "symfony/console": "~2.7@beta",
+        "symfony/yaml": "~2.7@beta",
+        "twig/twig": "~1.18",
+        "pimple/pimple": "~3.0"
+    },
+    "require-dev": {
+        "codeclimate/php-test-reporter": "0.1.*",
+        "fabpot/php-cs-fixer": "~1.8",
+        "indeyets/pake": "dev-master",
+        "phpunit/phpunit": "~4.6",
+        "squizlabs/php_codesniffer": "~2.3"
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "bin": [
+        "bin/scout"
+    ]
+}
