@@ -5,6 +5,17 @@ Help Scout Command Line Tools
 A simple command line client application that can be used with Help Scout. This
 is built using the [Symfony Console][symfony] and the [PHP API Client][phpapi].
 
+This is an example project,used to demonstrate the Help Scout API. It's much
+more common to use the API to build:
+
+* Custom Integrations with your other tools
+* A synchronization tool
+* An intranet dashboard interface
+* Or a million other things!
+
+But, we love programmers, and there's something magic about having Help Scout on
+the command line too!
+
 ## Quick Start
 
 Run the `bin/helpscout` file from the command line. It will prompt you for your
