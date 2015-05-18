@@ -1,0 +1,10 @@
+————————————————————————————————————————————————————————————————————————————————
+{{fullName|pad(80)}}
+————————————————————————————————————————————————————————————————————————————————
+
+Organization: {{organization|default("—")}}
+
+Emails:
+{% for email in emails %}
+    {{email.location|pad(10, "left")}}{{email.value|style("notice")}}
+{% endfor %}

@@ -60,6 +60,7 @@ class HelpScout extends Application
         $this->setVersion($this->project->version);
 
         // Load our commands into the application
+        $this->add(new \Console\Command\CustomerCommand());
         $this->add(new \Console\Command\MailboxesCommand());
         $this->add(new \Console\Command\SetupCommand());
         $this->add(new \Console\Command\VersionCommand());
