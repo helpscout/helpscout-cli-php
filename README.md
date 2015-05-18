@@ -49,7 +49,7 @@ Available commands:
 
 ## Dependencies
 
-This app requires PHP 5.3 and Composer.
+This app requires PHP 5.5 and Composer.
 
 [symfony]: http://symfony.com/doc/current/components/console.html
 [phpapi]: https://github.com/helpscout/helpscout-api-php
