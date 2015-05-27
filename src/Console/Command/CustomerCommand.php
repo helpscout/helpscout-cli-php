@@ -30,7 +30,7 @@ class CustomerCommand extends AbstractCommand
         $customer = $helpscout->getCustomer($customerId);
 
         $customer = (array) json_decode($customer->toJSON());
-        $customer['fullName'] = $customer['firstName'] . ' ' . $customer['lastName'];
+        $customer['fullName'] = $customer['firstName'].' '.$customer['lastName'];
 
         $template = $this->app->twig->loadTemplate('customer.twig');
         $view = $template->render($customer);

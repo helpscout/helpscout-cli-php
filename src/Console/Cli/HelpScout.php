@@ -23,9 +23,9 @@ class HelpScout extends Application
 
     public function initialize($configFile, $templatePath, $project, $argv)
     {
-        $this->configFile   = $configFile;
+        $this->configFile = $configFile;
         $this->templatePath = $templatePath;
-        $this->project      = $project;
+        $this->project = $project;
 
         // If we're missing config, we'll need to run the setup command;
         $runSetup = false;
@@ -96,6 +96,7 @@ class HelpScout extends Application
         $this->container['helpscout'] = $this->container->factory(function ($c) {
             $helpscout = ApiClient::getInstance();
             $helpscout->setKey($c['api_key']);
+
             return $helpscout;
         });
     }
@@ -116,8 +117,8 @@ class HelpScout extends Application
         $this->twig = new \Twig_Environment(
             $loader,
             array(
-                'cache'            => false,
-                'autoescape'       => false,
+                'cache' => false,
+                'autoescape' => false,
                 'strict_variables' => true, // SET TO TRUE WHILE DEBUGGING TO
                                             // SHOW ALL ERRORS AND INVALID VARS.
             )
@@ -139,8 +140,8 @@ class HelpScout extends Application
     {
         return array(
             'ConfigVersion' => '0.0.1',
-            'UseColor'      => true,
-            'ApiKey'        => '',
+            'UseColor' => true,
+            'ApiKey' => '',
         );
     }
 
@@ -231,6 +232,7 @@ class HelpScout extends Application
                 $command = $this->find($name);
             } catch (\Exception $e) {
                 print $e->getMessage()."\n";
+
                 return 1;
             }
         }

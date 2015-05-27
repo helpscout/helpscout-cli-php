@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "helpscout/api",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helpscout/helpscout-api-php.git",
-                "reference": "418b3d6e07ff27672e91b1f453dd7cbf4112c5cf"
+                "reference": "c66f9c23b748ea86cba1c5ba816767594a015690"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helpscout/helpscout-api-php/zipball/418b3d6e07ff27672e91b1f453dd7cbf4112c5cf",
-                "reference": "418b3d6e07ff27672e91b1f453dd7cbf4112c5cf",
+                "url": "https://api.github.com/repos/helpscout/helpscout-api-php/zipball/c66f9c23b748ea86cba1c5ba816767594a015690",
+                "reference": "c66f9c23b748ea86cba1c5ba816767594a015690",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "api",
                 "helpscout"
             ],
-            "time": "2015-04-17 13:21:04"
+            "time": "2015-05-22 15:00:55"
         },
         {
             "name": "pimple/pimple",
@@ -509,12 +509,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "d5a88af97723179b77ab198e7a9909b66e937312"
+                "reference": "cf00ec9c7ff7fa341fec841f01806da30f424c66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/89ffc395532c3214474e6ac7cb0a366db747d32c",
-                "reference": "d5a88af97723179b77ab198e7a9909b66e937312",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/cf00ec9c7ff7fa341fec841f01806da30f424c66",
+                "reference": "cf00ec9c7ff7fa341fec841f01806da30f424c66",
                 "shasum": ""
             },
             "require": {
@@ -555,7 +555,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2015-05-15 17:36:30"
+            "time": "2015-05-26 19:12:35"
         },
         {
             "name": "guzzle/guzzle",
@@ -773,12 +773,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373"
+                "reference": "5a355f91730c845301a9e28f91c8a5053353c496"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373",
-                "reference": "3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/5a355f91730c845301a9e28f91c8a5053353c496",
+                "reference": "5a355f91730c845301a9e28f91c8a5053353c496",
                 "shasum": ""
             },
             "require": {
@@ -825,7 +825,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-04-27 22:15:08"
+            "time": "2015-05-20 16:00:43"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -833,12 +833,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "9ef4b8cbf3e839a44a9b375d8c59e109ac7aa020"
+                "reference": "672248f49a25fcca46aa6c73612d6731d6b83c4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/9ef4b8cbf3e839a44a9b375d8c59e109ac7aa020",
-                "reference": "9ef4b8cbf3e839a44a9b375d8c59e109ac7aa020",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/672248f49a25fcca46aa6c73612d6731d6b83c4a",
+                "reference": "672248f49a25fcca46aa6c73612d6731d6b83c4a",
                 "shasum": ""
             },
             "require": {
@@ -887,7 +887,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-05-09 04:40:58"
+            "time": "2015-05-25 16:40:23"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1079,12 +1079,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "13a957b45df0b04f2e3b1fabd4a83eb4e5e5046a"
+                "reference": "49c2007b90b8a619e2057785e8fbc331b7b760ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/13a957b45df0b04f2e3b1fabd4a83eb4e5e5046a",
-                "reference": "13a957b45df0b04f2e3b1fabd4a83eb4e5e5046a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/49c2007b90b8a619e2057785e8fbc331b7b760ff",
+                "reference": "49c2007b90b8a619e2057785e8fbc331b7b760ff",
                 "shasum": ""
             },
             "require": {
@@ -1143,7 +1143,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-04-29 13:03:58"
+            "time": "2015-05-25 03:53:30"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1750,63 +1750,6 @@
                 "standards"
             ],
             "time": "2015-04-28 23:28:20"
-        },
-        {
-            "name": "symfony/dependency-injection",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/DependencyInjection.git",
-                "reference": "a9cc7ce561671093996cffd2e73bca9c2ed9e099"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/a9cc7ce561671093996cffd2e73bca9c2ed9e099",
-                "reference": "a9cc7ce561671093996cffd2e73bca9c2ed9e099",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "symfony/config": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0",
-                "symfony/yaml": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/config": "",
-                "symfony/proxy-manager-bridge": "Generate service proxies to lazy load them",
-                "symfony/yaml": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DependencyInjection\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DependencyInjection Component",
-            "homepage": "https://symfony.com",
-            "time": "2015-05-16 13:13:50"
         },
         {
             "name": "symfony/event-dispatcher",

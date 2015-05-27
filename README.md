@@ -38,12 +38,14 @@ Options:
   -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 
 Available commands:
-  help     Displays help for a command
-  list     Lists commands
-  mailbox  List mailbox conversations
-  setup    Configure this Help Scout client
-  version  Show version information
-  zen      Display a Zen koan, used as an API heartbeat
+  customer   Show customer details
+  help       Displays help for a command
+  list       Lists commands
+  mailbox    Show mailbox details
+  mailboxes  List all mailboxes
+  setup      Configure this Help Scout client
+  version    Show version information
+  zen        Display a Zen koan, used as an API heartbeat
 ```
 ## Examples
 

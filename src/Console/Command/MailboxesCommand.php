@@ -27,7 +27,7 @@ class MailboxesCommand extends AbstractCommand
         $template = $this->app->twig->loadTemplate('mailboxes.twig');
 
         $view = $template->render([
-            'mailboxes' => $mailboxes
+            'mailboxes' => $mailboxes,
         ]);
         $output->write($view, false, $this->app->outputFormat);
     }
@@ -36,9 +36,9 @@ class MailboxesCommand extends AbstractCommand
     {
         return array_map(function ($mailbox) {
             return [
-                'id'    => $mailbox->getId(),
-                'name'  => $mailbox->getName(),
-                'email' => $mailbox->getEmail()
+                'id' => $mailbox->getId(),
+                'name' => $mailbox->getName(),
+                'email' => $mailbox->getEmail(),
             ];
         }, $mailboxes->getItems());
     }

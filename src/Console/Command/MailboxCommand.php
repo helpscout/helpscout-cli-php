@@ -31,18 +31,18 @@ class MailboxCommand extends AbstractCommand
 
         $folders = array_map(function ($folder) {
             return [
-                'id'     => $folder->getId(),
-                'name'   => $folder->getName(),
-                'type'   => $folder->getType(),
-                'total'  => $folder->getTotalCount(),
-                'active' => $folder->getActiveCount()
+                'id' => $folder->getId(),
+                'name' => $folder->getName(),
+                'type' => $folder->getType(),
+                'total' => $folder->getTotalCount(),
+                'active' => $folder->getActiveCount(),
             ];
         }, $mailbox->getFolders());
 
         $mailboxData = [
-            'name'    => $mailbox->getName(),
-            'email'   => $mailbox->getEmail(),
-            'folders' => $folders
+            'name' => $mailbox->getName(),
+            'email' => $mailbox->getEmail(),
+            'folders' => $folders,
         ];
 
         print_r($mailboxData);
