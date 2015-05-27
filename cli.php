@@ -28,7 +28,7 @@ $templatePath = __DIR__.'/templates';
 $project = json_decode(file_get_contents(__DIR__.'/composer.json'));
 
 // Init the app with these params
-$console->initialize($configFile, $templatePath, $project);
+$console->initialize($configFile, $templatePath, $project, $_SERVER['argv']);
 
 // Execute the console app.
 $console->run();

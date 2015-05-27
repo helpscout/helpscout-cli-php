@@ -16,7 +16,7 @@ class WorkingTest extends \PHPUnit_Framework_TestCase
         $configPath   = realpath(__DIR__ . '/.testingConfig.yml');
         $project      = json_decode(file_get_contents(__DIR__ . '/../composer.json'));
         $this->console = new HelpScout();
-        $this->console->initialize($configPath, $templatePath, $project);
+        $this->console->initialize($configPath, $templatePath, $project, []);
 
         $this->console->container['api_key'] = 'invalid_testing_token';
         $mock = $this->getMock('ApiClient');

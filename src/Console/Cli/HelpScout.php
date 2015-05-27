@@ -21,13 +21,14 @@ class HelpScout extends Application
 
     public $container;
 
-    public function initialize($configFile, $templatePath, $project)
+    public function initialize($configFile, $templatePath, $project, $argv)
     {
-        $runSetup = false;
-        $this->configFile = $configFile;
+        $this->configFile   = $configFile;
+        $this->templatePath = $templatePath;
+        $this->project      = $project;
 
-        // Add the composer information for use in version info and such.
-        $this->project = $project;
+        // If we're missing config, we'll need to run the setup command;
+        $runSetup = false;
 
         // Load our application config information
         if (file_exists($configFile)) {
@@ -37,18 +38,44 @@ class HelpScout extends Application
             $this->config = $this->getDefaultConfig();
         }
 
-
         // Add our dependency injection container
-        $this->container = new Container();
+        $this->initializeDI();
 
-        // Setup our Help Scout API client
-        $this->container['api_key'] = $this->config['ApiKey'];
-        $this->container['helpscout'] = $this->container->factory(function ($c) {
-            $helpscout = ApiClient::getInstance();
-            $helpscout->setKey($c['api_key']);
-            return $helpscout;
-        });
+        // Load our commands into the application
+        $this->initializeCommands();
 
+        // We'll use [Twig](http://twig.sensiolabs.org/) for template output
+        $this->initializeTwig();
+
+        // Set the console application output settings
+        $this->initializeConsoleSettings();
+
+        // If the config file is empty, run the setup script here
+        // If the config file version is a different major number, run the setup script here
+        $currentVersion = explode('.', $this->project->version);
+        $configVersion = explode('.', $this->config['ConfigVersion']);
+        $majorVersionChange = $currentVersion[0] != $configVersion[0];
+
+        // We need to be able to skip setup for the list and help
+        $helpRequested = (
+            empty($argv[1]) || // help is the default command
+            in_array($argv[1], ['list', 'help'])
+        );
+
+        // Setup can run here, so that in the `cli.php` we can then `run()` the
+        // actual users command.
+        if (($runSetup || $majorVersionChange) && !$helpRequested) {
+            $command = $this->find('setup');
+            $arguments = array(
+                'command' => 'setup',
+            );
+            $input = new ArrayInput($arguments);
+            $command->run($input, new ConsoleOutput());
+        }
+    }
+
+    private function initializeConsoleSettings()
+    {
         // https://github.com/symfony/Console/blob/master/Output/Output.php
         $this->outputFormat
             = $this->config['UseColor']
@@ -58,16 +85,33 @@ class HelpScout extends Application
         // We do this now because we've loaded the project info from the composer file
         $this->setName($this->project->description);
         $this->setVersion($this->project->version);
+    }
 
-        // Load our commands into the application
+    private function initializeDI()
+    {
+        $this->container = new Container();
+
+        // Setup our Help Scout API client
+        $this->container['api_key'] = $this->config['ApiKey'];
+        $this->container['helpscout'] = $this->container->factory(function ($c) {
+            $helpscout = ApiClient::getInstance();
+            $helpscout->setKey($c['api_key']);
+            return $helpscout;
+        });
+    }
+
+    private function initializeCommands()
+    {
         $this->add(new \Console\Command\CustomerCommand());
         $this->add(new \Console\Command\MailboxesCommand());
         $this->add(new \Console\Command\SetupCommand());
         $this->add(new \Console\Command\VersionCommand());
         $this->add(new \Console\Command\ZenCommand());
+    }
 
-        // We'll use [Twig](http://twig.sensiolabs.org/) for template output
-        $loader = new \Twig_Loader_Filesystem($templatePath);
+    private function initializeTwig()
+    {
+        $loader = new \Twig_Loader_Filesystem($this->templatePath);
         $this->twig = new \Twig_Environment(
             $loader,
             array(
@@ -83,27 +127,6 @@ class HelpScout extends Application
         $this->twig->addFilter('style', new \Twig_Filter_Function('Console\Cli\TwigFormatters::style'));
         $this->twig->addFilter('repeat', new \Twig_Filter_Function('str_repeat'));
         $this->twig->addFilter('wrap', new \Twig_Filter_Function('wordwrap'));
-
-        // If the config file is empty, run the setup script here
-        // If the config file version is a different major number, run the setup script here
-        $currentVersion = explode('.', $this->project->version);
-        $configVersion = explode('.', $this->config['ConfigVersion']);
-        $majorVersionChange = $currentVersion[0] != $configVersion[0];
-
-        // We need to be able to skip setup for the list and help
-        $helpRequested = (
-            empty($_SERVER['argv'][1]) || // help is the default command
-            in_array($_SERVER['argv'][1], ['list', 'help'])
-        );
-
-        if (($runSetup || $majorVersionChange) && !$helpRequested) {
-            $command = $this->find('setup');
-            $arguments = array(
-                'command' => 'setup',
-            );
-            $input = new ArrayInput($arguments);
-            $command->run($input, new ConsoleOutput());
-        }
     }
 
     public function getLongVersion()
