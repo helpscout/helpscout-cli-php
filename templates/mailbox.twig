@@ -1,0 +1,12 @@
+————————————————————————————————————————————————————————————————————————————————
+{{name|pad(80)}}
+{{email|pad(80)}}
+————————————————————————————————————————————————————————————————————————————————
+<heading> ID         Name                           Type               Active   Total    </heading>
+————————————————————————————————————————————————————————————————————————————————
+{% for folder in folders %}
+ {{"[%d]"|format(folder.id)|pad(10, "left")|style("info")}}{{folder.name|pad(30, "left")}}{{folder.type|pad(19, "left")}}{{folder.active|pad(9, "right")}}{{folder.total|pad(9, "right")}}
+{% endfor %}
+{% if folders|length == 0%}
+  <notice>There are no folders in this mailbox.</notice>
+{% endif  %}

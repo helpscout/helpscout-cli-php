@@ -103,6 +103,7 @@ class HelpScout extends Application
     private function initializeCommands()
     {
         $this->add(new \Console\Command\CustomerCommand());
+        $this->add(new \Console\Command\MailboxCommand());
         $this->add(new \Console\Command\MailboxesCommand());
         $this->add(new \Console\Command\SetupCommand());
         $this->add(new \Console\Command\VersionCommand());
