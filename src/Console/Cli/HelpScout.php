@@ -151,6 +151,16 @@ class HelpScout extends Application
         return file_put_contents($this->configFile, $yaml);
     }
 
+    public function getConfig()
+    {
+        $config = $this->getDefaultConfig();
+        if (file_exists($this->configFile)) {
+            $config = Yaml::parse(file_get_contents($this->configFile));
+        }
+
+        return $config;
+    }
+
     public function registerStyles(&$output)
     {
         // https://github.com/symfony/Console/blob/master/Formatter/OutputFormatterStyle.php
