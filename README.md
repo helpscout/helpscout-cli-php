@@ -1,11 +1,11 @@
 Help Scout Command Line Tools [![Build Status](https://travis-ci.org/helpscout/helpscout-cli-php.svg)](https://travis-ci.org/helpscout/helpscout-cli-php) [![Code Climate](https://codeclimate.com/repos/555a0ee76956806a8300328e/badges/5256fafc5283b70fc667/gpa.svg)](https://codeclimate.com/repos/555a0ee76956806a8300328e/feed)
 ================================================================================
-> Command line interface for Help Scout
+> Command line interface for Help Scout :: API example application
 
 A simple command line client application that can be used with Help Scout. This
 is built using the [Symfony Console][symfony] and the [PHP API Client][phpapi].
 
-This is an example project,used to demonstrate the Help Scout API. It's much
+This is an example project used to demonstrate the Help Scout API. It's much
 more common to use the API to build:
 
 * Custom Integrations with your other tools
@@ -19,7 +19,7 @@ the command line too!
 ## Quick Start
 
 Run the `bin/helpscout` file from the command line. It will prompt you for your
-API key. It will store an API token in a ~/.helpscout.yml file.
+API key. It will store an API token in a `~/.helpscout.yml` file.
 
 ## Help
 ```

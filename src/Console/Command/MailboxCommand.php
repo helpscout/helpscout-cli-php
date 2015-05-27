@@ -45,8 +45,6 @@ class MailboxCommand extends AbstractCommand
             'folders' => $folders,
         ];
 
-        print_r($mailboxData);
-
         $template = $this->app->twig->loadTemplate('mailbox.twig');
         $view = $template->render($mailboxData);
         $output->write($view, false, $this->app->outputFormat);
