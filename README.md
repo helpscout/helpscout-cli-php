@@ -1,4 +1,4 @@
-Help Scout Command Line Tools [![Build Status](https://travis-ci.org/helpscout/helpscout-cli-php.svg)](https://travis-ci.org/helpscout/helpscout-cli-php) [![Code Climate](https://codeclimate.com/repos/555a0ee76956806a8300328e/badges/5256fafc5283b70fc667/gpa.svg)](https://codeclimate.com/repos/555a0ee76956806a8300328e/feed)
+Help Scout Command Line Tools [![Build Status](https://travis-ci.org/helpscout/helpscout-cli-php.svg)](https://travis-ci.org/helpscout/helpscout-cli-php) [![Code Climate](https://codeclimate.com/github/helpscout/helpscout-cli-php/badges/gpa.svg)](https://codeclimate.com/github/helpscout/helpscout-cli-php)
 ================================================================================
 > Command line interface for Help Scout :: API example application
 
