@@ -1,3 +1,5 @@
+⚠️ With the deprecation of Help Scout's v1 API, this project is now obsolete.  See [Mailbox API v2 documentation](https://developer.helpscout.com/mailbox-api/) ⚠️
+
 Help Scout Command Line Tools [![Build Status](https://travis-ci.org/helpscout/helpscout-cli-php.svg)](https://travis-ci.org/helpscout/helpscout-cli-php) [![Code Climate](https://codeclimate.com/github/helpscout/helpscout-cli-php/badges/gpa.svg)](https://codeclimate.com/github/helpscout/helpscout-cli-php)
 ================================================================================
 > Command line interface for Help Scout :: API example application
